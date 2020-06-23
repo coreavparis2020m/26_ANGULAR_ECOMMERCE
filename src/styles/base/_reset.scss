@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+}
