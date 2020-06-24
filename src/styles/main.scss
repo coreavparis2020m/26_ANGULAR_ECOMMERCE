@@ -1,3 +1,4 @@
+@import 'abstracts/mixins';
 @import 'abstracts/variables';
 
 @import 'base/reset';
@@ -5,10 +6,13 @@
 
 @import 'components/cards';
 
+@import 'layout/grid';
+
 // General
 
 body {
     font-family: $main-font;
+    color: $font-color;
 }
 
 h1 {

@@ -1,6 +1,7 @@
 .shop-card {
     width: 280px;
     height: 460px;
+    position: relative;
 
     .pic {
         width: 280px;
@@ -14,9 +15,59 @@
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-            transition: 400ms all ease-in-out;
+            transition: 600ms all ease-in-out;
+        }
+    }
 
-            &:hover {
+    .acceso {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 1rem;
+        @include flex(center, center);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transition: 600ms all ease-in-out;
+
+        img {
+            margin-right: 0.5rem;
+        }
+    }
+
+    .datos {
+        background-color: $ligth-grey;
+        height: 100px;
+        width: 100%;
+        @include flex-column(center, center);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        p:nth-child(1) {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding-bottom: 0.4rem;
+        }
+
+        p:nth-child(2) {
+            color: $dark-font-color;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .acceso {
+            bottom: 100px;
+        }
+
+        .pic {
+
+            img {
+
                 transform: scale(1.2) translateX(-50%);
             }
         }

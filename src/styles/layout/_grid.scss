@@ -1,0 +1,9 @@
+.contenedor-inicio {
+    max-width: 1280px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    grid-template-rows: repeat(2, 460px);
+    grid-gap: 2rem;
+    justify-content: space-around;
+}

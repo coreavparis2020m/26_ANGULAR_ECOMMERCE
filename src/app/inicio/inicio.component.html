@@ -1,8 +1,16 @@
-<div class="shop-card" *ngFor="let producto of productos">
-    <div class="pic">
-        <img [src]="producto.pics[0]">
-    </div>
-    <div class="datos">
-        <p>{{producto.nombre}}</p>
+<div class="contenedor-inicio">
+    <div class="shop-card" *ngFor="let producto of productos">
+        <div class="pic">
+            <img [src]="producto.pics[0]">
+        </div>
+        <div class="acceso">
+            <img src="assets/icons/shopping-cart.svg" alt="">  
+            <span>Añadir a la cesta</span>
+        </div>
+        <div class="datos">
+            <p>{{producto.categoria}}</p>
+            <p>{{producto.nombre}}</p>
+            <p>{{producto.precio | numero: 2: ' €'}}</p>
+        </div>
     </div>
 </div>
