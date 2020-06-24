@@ -10,6 +10,7 @@ import { ProductosService } from '../servicios/productos.service';
 export class ProductoComponent implements OnInit {
 
     _id: string;
+    producto: any;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private productosService: ProductosService) { }
@@ -18,7 +19,7 @@ export class ProductoComponent implements OnInit {
         this._id = this.activatedRoute.snapshot.params._id;
         this.productosService.getProducto(this._id)
                                 .subscribe((res: any) => {
-                                    console.log(res);
+                                    this.producto = res.producto;
                                 }, (error: any) => {
                                     console.log(error);
                                 })

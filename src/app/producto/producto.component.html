@@ -1,1 +1,13 @@
-<p>producto works!</p>
+<div class="contenedor-producto">
+    <div class="pics">
+        <div class="main-pic">
+            <img [src]="producto?.pics[0]">
+        </div>
+        <div class="thumbs">
+            <img [src]="pic" *ngFor="let pic of producto?.pics">
+        </div>
+    </div>
+    <div class="datos">
+
+    </div>
+</div>

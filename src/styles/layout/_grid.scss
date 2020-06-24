@@ -7,3 +7,39 @@
     grid-gap: 2rem;
     justify-content: space-around;
 }
+
+.contenedor-producto {
+    max-width: 720px;
+    margin: 2rem auto;
+    @include flex(flex-start, stretch);
+
+    .pics {
+        width: 50%;
+
+        .main-pic {
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .thumbs {
+
+           img {
+               width: 25%;
+               opacity: 0.5;
+               cursor: pointer;
+
+               &:activa {
+                   opacity: 1;
+               }
+           } 
+        }
+    }
+
+    .datos {
+        width: 50%;
+    }
+
+}
