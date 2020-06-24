@@ -1,0 +1,8 @@
+<div class="shop-card" *ngFor="let producto of productos">
+    <div class="pic">
+        <img [src]="producto.pics[0]">
+    </div>
+    <div class="datos">
+        <p>{{producto.nombre}}</p>
+    </div>
+</div>

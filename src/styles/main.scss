@@ -1,5 +1,15 @@
 @import 'abstracts/variables';
+
 @import 'base/reset';
+@import 'base/typography';
+
+@import 'components/cards';
+
+// General
+
+body {
+    font-family: $main-font;
+}
 
 h1 {
     color: $brand-color;
