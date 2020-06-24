@@ -1,5 +1,7 @@
 <div class="contenedor-inicio">
-    <div class="shop-card" *ngFor="let producto of productos">
+    <div class="shop-card" 
+         *ngFor="let producto of productos"
+         routerLink="/producto/{{producto._id}}">
         <div class="pic">
             <img [src]="producto.pics[0]">
         </div>

@@ -21,5 +21,14 @@ export class ProductosService {
                         )
     }
 
+    getProducto(_id) {
+        return this.http.get(this.urlProductos + '/' + _id)
+                        .pipe(
+                            map ((res: any) => {
+                                return res
+                            })
+                        )
+
+    }
 
 }
