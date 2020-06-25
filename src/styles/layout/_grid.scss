@@ -63,8 +63,27 @@
         .caracteristicas-producto {
             padding: 1rem 0;
             border-bottom: 1px solid $medium-grey;
+            @include flex(flex-start, stretch);
+
+            div {
+                width: 100%;
+            }
+        }
+
+        .cantidad-producto {
+            padding: 1rem 0;
+            border-bottom: 1px solid $medium-grey;
         }
 
     }
 
 }
+
+.m-l-small {
+    margin-left: 0.5rem;
+}
+
+.m-r-small {
+    margin-right: 0.5rem;
+}
+

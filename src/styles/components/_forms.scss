@@ -1,19 +1,63 @@
 .custom-label {
-
+    padding-bottom: 0.5rem;
 }
 
 .custom-select {
+    position: relative;
 
-    .custom-option {
+    .custom-selected {
         width: 100%;
+        min-height: 42px;
         background-color: $ligth-grey;
         padding: 0.5rem 1rem;
-        transition: 400ms all ease-in-out;
+        cursor: pointer;
+        @include flex(space-between, center);
+    }
 
-        &:hover {
-            background-color: $medium-grey;
-            cursor: pointer;
+    .custom-options {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+        .custom-option {
+            width: 100%;
+            background-color: $ligth-grey;
+            padding: 0.5rem 1rem;
+            transition: 400ms all ease-in-out;
+
+            &:hover {
+                background-color: $medium-grey;
+                cursor: pointer;
+            }
         }
     }
 
+}
+
+.custom-quantity {
+    @include flex(flex-start, stretch);
+
+    div:nth-child(1),
+    div:nth-child(3) {
+        background-color: $medium-grey;
+        @include flex(center, center);
+        padding: 0 0.5rem;
+        transition: all 400ms ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $font-color;
+        }
+    }
+
+    div:nth-child(2) {
+        background-color: $ligth-grey;
+        padding: 0.5rem 1rem;
+    }
 }

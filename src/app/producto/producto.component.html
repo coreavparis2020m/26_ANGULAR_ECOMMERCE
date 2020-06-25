@@ -19,15 +19,59 @@
             <p>{{producto?.descripcion}}</p>
         </div>
         <div class="caracteristicas-producto">
-            <p class="custom-label">TALLA</p>
-            <div class="custom-select">
-                <div class="custom-selected">
-                    {{articulo?.talla}}
+            <div>       
+                <p class="custom-label">TALLA</p>
+                <div class="custom-select">
+                    <div class="custom-selected" *ngIf="producto?.tallas.length === 0">
+                        Única
+                    </div>
+                    <div class="custom-selected" 
+                        *ngIf="producto?.tallas.length !== 0"
+                        (click)="showTallas($event)">
+                        {{articulo?.talla}}
+                        <img src="assets/icons/chevron-down.svg">
+                    </div>
+                    <div #tallas class="custom-options">
+                        <div class="custom-option"
+                            *ngFor="let talla of producto?.tallas; let i = index;"
+                            (click)="setTalla(i)">
+                            {{talla}}
+                        </div>
+                    </div>
                 </div>
-                <div class="custom-options">
-                    <div class="custom-option"
-                         *ngFor="let talla of producto?.tallas">
-                        {{talla}}
+            </div>
+            <div class="m-l-small">
+                <p class="custom-label">COLOR</p>
+                <div class="custom-select">
+                    <div class="custom-selected" *ngIf="producto?.colores[0] === 'unico'">
+                        Único
+                    </div>
+                    <div class="custom-selected" 
+                        *ngIf="producto?.colores[0] !== 'unico'"
+                        (click)="showColor($event)">
+                        {{articulo?.color}}
+                        <img src="assets/icons/chevron-down.svg">
+                    </div>
+                    <div #colores class="custom-options">
+                        <div class="custom-option"
+                            *ngFor="let color of producto?.colores; let i = index;"
+                            (click)="setColor(i)">
+                            {{color}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cantidad-producto">
+            <div>
+                <p class="custom-label">CANTIDAD</p>
+                <div class="custom-quantity">
+                    <div (click)="setCantidad(-1)">
+                        <img src="assets/icons/minus.svg">
+                    </div>
+                    <div>{{this.articulo?.cantidad}}</div>
+                    <div (click)="setCantidad(1)">
+                        <img src="assets/icons/plus.svg">
                     </div>
                 </div>
             </div>
