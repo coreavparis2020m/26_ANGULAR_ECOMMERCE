@@ -31,7 +31,7 @@
                opacity: 0.5;
                cursor: pointer;
 
-               &:activa {
+               &.activa {
                    opacity: 1;
                }
            } 
@@ -40,6 +40,31 @@
 
     .datos {
         width: 50%;
+        padding: 1rem;
+
+        .titulos-producto {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $medium-grey;
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .descripcion-producto {
+            padding: 1rem 0;
+            border-bottom: 1px solid $medium-grey;
+        }
+
+        .caracteristicas-producto {
+            padding: 1rem 0;
+            border-bottom: 1px solid $medium-grey;
+        }
+
     }
 
 }

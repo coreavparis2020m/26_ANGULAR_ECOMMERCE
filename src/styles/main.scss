@@ -5,6 +5,7 @@
 @import 'base/typography';
 
 @import 'components/cards';
+@import 'components/forms';
 
 @import 'layout/grid';
 
@@ -13,8 +14,4 @@
 body {
     font-family: $main-font;
     color: $font-color;
-}
-
-h1 {
-    color: $brand-color;
 }

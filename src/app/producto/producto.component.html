@@ -1,13 +1,36 @@
 <div class="contenedor-producto">
     <div class="pics">
         <div class="main-pic">
-            <img [src]="producto?.pics[0]">
+            <img [src]="producto?.pics[picActive]">
         </div>
         <div class="thumbs">
-            <img [src]="pic" *ngFor="let pic of producto?.pics">
+            <img [ngClass]="{activa: i === picActive}"
+                 [src]="pic" 
+                 *ngFor="let pic of producto?.pics; let i = index;"
+                 (click)="showPic(i)">
         </div>
     </div>
     <div class="datos">
-
+        <div class="titulos-producto">
+            <h1>{{producto?.nombre}}</h1>
+            <h2>{{producto?.precio | numero: 2: ' €'}}</h2>
+        </div>
+        <div class="descripcion-producto">
+            <p>{{producto?.descripcion}}</p>
+        </div>
+        <div class="caracteristicas-producto">
+            <p class="custom-label">TALLA</p>
+            <div class="custom-select">
+                <div class="custom-selected">
+                    {{articulo?.talla}}
+                </div>
+                <div class="custom-options">
+                    <div class="custom-option"
+                         *ngFor="let talla of producto?.tallas">
+                        {{talla}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

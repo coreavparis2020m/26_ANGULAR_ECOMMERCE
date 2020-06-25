@@ -11,6 +11,10 @@ export class ProductoComponent implements OnInit {
 
     _id: string;
     producto: any;
+    picActive = 0;
+
+    articulo: any;
+
 
     constructor(private activatedRoute: ActivatedRoute,
                 private productosService: ProductosService) { }
@@ -20,9 +24,16 @@ export class ProductoComponent implements OnInit {
         this.productosService.getProducto(this._id)
                                 .subscribe((res: any) => {
                                     this.producto = res.producto;
+                                    this.articulo = {
+                                        talla: this.producto.tallas[0]
+                                    }
                                 }, (error: any) => {
                                     console.log(error);
                                 })
+    }
+
+    showPic(i) {
+        this.picActive = i;
     }
 
 }

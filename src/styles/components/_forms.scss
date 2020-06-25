@@ -1,0 +1,19 @@
+.custom-label {
+
+}
+
+.custom-select {
+
+    .custom-option {
+        width: 100%;
+        background-color: $ligth-grey;
+        padding: 0.5rem 1rem;
+        transition: 400ms all ease-in-out;
+
+        &:hover {
+            background-color: $medium-grey;
+            cursor: pointer;
+        }
+    }
+
+}
