@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +11,7 @@ export class RegistroComponent implements OnInit {
 
   formRegistro: FormGroup
   
-  constructor() { }
+  constructor(private usuariosService: UsuariosService) { }
 
   ngOnInit() {
         this.formRegistro = new FormGroup({
@@ -19,6 +20,20 @@ export class RegistroComponent implements OnInit {
             password: new FormControl('', [Validators.required]),
             checkpass: new FormControl('', [Validators.required])
         })
+  }
+
+  sendUsuario() {
+      let usuario = {
+          nombre: this.formRegistro.get('nombre').value,
+          email: this.formRegistro.get('email').value,
+          password: this.formRegistro.get('password').value
+      }
+      this.usuariosService.postUsuario(usuario)
+                            .subscribe((res: any) => {
+                                console.log(res);
+                            }, (error: any) => {
+                                console.log(error);
+                            })
   }
 
 }
