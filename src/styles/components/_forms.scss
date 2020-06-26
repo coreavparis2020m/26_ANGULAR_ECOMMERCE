@@ -48,6 +48,7 @@
         background-color: $medium-grey;
         @include flex(center, center);
         padding: 0 0.5rem;
+        max-width: 54px;
         transition: all 400ms ease-in-out;
 
         &:hover {
@@ -59,5 +60,6 @@
     div:nth-child(2) {
         background-color: $ligth-grey;
         padding: 0.5rem 1rem;
+        max-width: 54px;
     }
 }

@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NumeroPipe } from './pipes/numero.pipe';
 import { ProductoComponent } from './producto/producto.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './autenticacion/login/login.component';
+import { RegistroComponent } from './autenticacion/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     NumeroPipe,
-    ProductoComponent
+    ProductoComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

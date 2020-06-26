@@ -9,7 +9,7 @@
 }
 
 .contenedor-producto {
-    max-width: 720px;
+    max-width: 840px;
     margin: 2rem auto;
     @include flex(flex-start, stretch);
 
@@ -60,19 +60,23 @@
             border-bottom: 1px solid $medium-grey;
         }
 
-        .caracteristicas-producto {
-            padding: 1rem 0;
-            border-bottom: 1px solid $medium-grey;
-            @include flex(flex-start, stretch);
-
-            div {
-                width: 100%;
-            }
-        }
-
+        .caracteristicas-producto,
         .cantidad-producto {
             padding: 1rem 0;
             border-bottom: 1px solid $medium-grey;
+            @include flex(flex-start, flex-end);
+
+            div {
+                width: 100%;
+
+                button {
+                    min-height: 38px;
+                }
+            }
+        }
+
+        .info-adicional-producto {
+            padding: 1rem 0;
         }
 
     }
