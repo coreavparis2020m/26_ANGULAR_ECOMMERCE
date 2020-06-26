@@ -83,6 +83,14 @@
 
 }
 
+.contenedor-autenticacion {
+    width: 100%;
+    height: calc(100vh - 80px);
+    @include flex(center, center);
+    background-image: url('../assets/blue-2564660_1920.jpg');
+    background-position: center;
+}
+
 .m-l-small {
     margin-left: 0.5rem;
 }

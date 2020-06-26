@@ -1,3 +1,45 @@
+form {
+    background-color: white;
+    padding: 2rem;
+    min-width: 440px;
+
+    div {
+        @include flex-column(flex-start, flex-start);
+
+        label {
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    div:last-of-type {
+        margin-top: 1rem;
+        @include flex-column(flex-start, flex-end);
+    }
+
+    p {
+        margin: 1rem;
+
+        span {
+            color: $brand-color;
+            cursor: pointer;
+        }
+    }
+
+    button[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+// Custom
+
 .custom-label {
     padding-bottom: 0.5rem;
 }
