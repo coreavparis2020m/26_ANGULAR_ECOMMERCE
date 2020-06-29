@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+    formLogin: FormGroup;
 
-  ngOnInit() {
+    constructor(private usuariosService: UsuariosService) { }
+
+    ngOnInit() {
+        this.formLogin = new FormGroup({
+            email: new FormControl('', [Validators.required]),
+            password: new FormControl('', [Validators.required])
+        })
+    }
+
+    sendAut() {
+      let credenciales = {
+          email: this.formLogin.get('email').value,
+          password: this.formLogin.get('password').value
+      }
+      this.usuariosService.login(credenciales)
+                            .subscribe((res: any) => {
+                                console.log(res);
+                            }, (error: any) => {
+                                console.log(error);
+                            })
   }
 
 }

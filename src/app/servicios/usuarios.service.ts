@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class UsuariosService {
 
     urlUsuarios = environment.urlUsuarios;
+    urlLogin = environment.urlLogin;
 
     constructor(private http: HttpClient) { }
 
@@ -20,6 +21,15 @@ export class UsuariosService {
                                 return res;
                             })
                         )
+    }
+
+    login(credenciales) {
+        return this.http.post(this.urlLogin, credenciales)
+                        .pipe(
+                            map((res: any) => {
+                                return res;
+                            })
+                        )    
     }
 
 }

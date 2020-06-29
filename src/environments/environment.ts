@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   urlProductos: 'http://localhost:3000/producto',
-  urlUsuarios: 'http://localhost:3000/usuario'
+  urlUsuarios: 'http://localhost:3000/usuario',
+  urlLogin: 'http://localhost:3000/login'
 };
 
 /*
