@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EstadoService } from '../servicios/estado.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+    subscripUsuarioLogueado: Subscription;
+    usuarioLogueado: boolean;
 
-  ngOnInit() {
-  }
+    constructor(private estadoService: EstadoService) { }
+
+    ngOnInit() {
+        this.subscripUsuarioLogueado = this.estadoService.isUsuarioLoguedaoIn
+                                            .subscribe((data: any) => {
+                                                this.usuarioLogueado = data.usuarioLogueado;
+                                            })
+    }
+
+    logOut() {
+        this.estadoService.setLogout();
+    }
 
 }

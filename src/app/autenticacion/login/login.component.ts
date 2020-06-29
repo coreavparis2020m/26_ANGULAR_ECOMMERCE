@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { EstadoService } from 'src/app/servicios/estado.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,12 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 export class LoginComponent implements OnInit {
 
     formLogin: FormGroup;
+    mensaje = '';
+    esperando = false;
 
-    constructor(private usuariosService: UsuariosService) { }
+    constructor(private usuariosService: UsuariosService,
+                private estadoService: EstadoService,
+                private router: Router) { }
 
     ngOnInit() {
         this.formLogin = new FormGroup({
@@ -21,15 +27,21 @@ export class LoginComponent implements OnInit {
     }
 
     sendAut() {
-      let credenciales = {
-          email: this.formLogin.get('email').value,
-          password: this.formLogin.get('password').value
-      }
-      this.usuariosService.login(credenciales)
+        this.esperando = true;
+        let credenciales = {
+            email: this.formLogin.get('email').value,
+            password: this.formLogin.get('password').value
+        }
+        this.usuariosService.login(credenciales)
                             .subscribe((res: any) => {
-                                console.log(res);
+                                this.estadoService.setLogin();
+                                this.esperando = false;
+                                this.router.navigate(['/']);
                             }, (error: any) => {
-                                console.log(error);
+                                this.esperando = false;
+                                if(error.error.mensaje) {
+                                    this.mensaje = error.error.mensaje;
+                                }
                             })
   }
 

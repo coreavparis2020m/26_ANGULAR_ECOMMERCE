@@ -9,7 +9,9 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class RegistroComponent implements OnInit {
 
-  formRegistro: FormGroup
+  formRegistro: FormGroup;
+  esperando = false;
+  mensaje = '';
   
   constructor(private usuariosService: UsuariosService) { }
 
@@ -23,6 +25,7 @@ export class RegistroComponent implements OnInit {
   }
 
   sendUsuario() {
+      this.esperando = true;
       let usuario = {
           nombre: this.formRegistro.get('nombre').value,
           email: this.formRegistro.get('email').value,
@@ -30,9 +33,15 @@ export class RegistroComponent implements OnInit {
       }
       this.usuariosService.postUsuario(usuario)
                             .subscribe((res: any) => {
+                                this.esperando = false;
                                 console.log(res);
                             }, (error: any) => {
-                                console.log(error);
+                                this.esperando = false;
+                                if(error.error.error.code === 11000) {
+                                    this.mensaje = 'El email ya esta siendo utilizado';
+                                } else {
+                                    this.mensaje = 'El servidor no se encuentra disponible';
+                                }
                             })
   }
 

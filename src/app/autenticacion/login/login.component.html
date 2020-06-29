@@ -9,8 +9,10 @@
             <input type="password" id="password" formControlName="password">
         </div>
         <div>
-            <button type="submit">INICIAR SESIÓN</button>
+            <button type="submit" *ngIf="!esperando">INICIAR SESIÓN</button>
+            <button type="button" *ngIf="esperando">Espere...</button>
         </div>
          <p>Pulse <span routerLink="/registro">aquí</span> si no dispone de cuenta</p>
+         <p>{{mensaje}}</p>
     </form>
 </div>

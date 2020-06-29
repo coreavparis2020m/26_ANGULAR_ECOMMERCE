@@ -17,11 +17,15 @@
             <input type="password" id="checkpass" formControlName="checkpass">
         </div>
         <div>
-            <button type="submit"
+            <button type="submit" *ngIf="!esperando"
                     [disabled]="formRegistro.invalid || formRegistro.get('password').value !== formRegistro.get('checkpass').value">
                 CREAR USUARIO
             </button>
+            <button type="button" *ngIf="esperando">
+                Espere...
+            </button>
         </div>
         <p>Pulse <span routerLink="/login">aquí</span> si ya dispone de cuenta</p>
+        <p>{{mensaje}}</p>
     </form>
 </div>
