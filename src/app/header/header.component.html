@@ -1,4 +1,5 @@
 <header>
+    <p *ngIf="usuarioLogueado" class="m-r-small" routerLink="/perfil">{{usuario.nombre}}</p>
     <button *ngIf="!usuarioLogueado" class="outline" routerLink="/login">INICIAR SESIÓN</button>
     <button *ngIf="usuarioLogueado" (click)="logOut()">CERRAR SESIÓN</button>
 </header>

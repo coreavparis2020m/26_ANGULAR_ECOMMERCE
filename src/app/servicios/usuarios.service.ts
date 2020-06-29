@@ -32,4 +32,13 @@ export class UsuariosService {
                         )    
     }
 
+    getUsuario(_id) {
+        return this.http.get(this.urlUsuarios + '/' + _id)
+                        .pipe(
+                            map((res: any) => {
+                                return res;
+                            })
+                        )   
+    }
+
 }

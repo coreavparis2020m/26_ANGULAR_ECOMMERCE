@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         }
         this.usuariosService.login(credenciales)
                             .subscribe((res: any) => {
-                                this.estadoService.setLogin();
+                                this.estadoService.setLogin(res.usuario);
                                 this.esperando = false;
                                 this.router.navigate(['/']);
                             }, (error: any) => {

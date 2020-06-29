@@ -11,6 +11,7 @@ import { ProductoComponent } from './producto/producto.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistroComponent } from './autenticacion/registro/registro.component';
     ProductoComponent,
     HeaderComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

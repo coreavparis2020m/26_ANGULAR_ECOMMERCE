@@ -7,20 +7,22 @@ import { Router } from '@angular/router';
 })
 export class EstadoService {
 
-    private usuarioLogueadoIn = new BehaviorSubject<any>({usuarioLogueado: false});
+    usuario: any = {};
+    private usuarioIn = new BehaviorSubject<any>({usuarioLogueado: false, usuario: this.usuario});
 
-    get isUsuarioLoguedaoIn() {
-        return this.usuarioLogueadoIn.asObservable();
+    get isUsuarioIn() {
+        return this.usuarioIn.asObservable();
     }
 
     constructor(private router: Router) { }
 
-    setLogin() {
-        this.usuarioLogueadoIn.next({usuarioLogueado: true});
+    setLogin(usuario) {
+        this.usuario = usuario;
+        this.usuarioIn.next({usuarioLogueado: true, usuario: this.usuario});
     }
 
     setLogout() {
-        this.usuarioLogueadoIn.next({usuarioLogueado: false});
+        this.usuarioIn.next({usuarioLogueado: false});
         this.router.navigate(['/']);
     }
 

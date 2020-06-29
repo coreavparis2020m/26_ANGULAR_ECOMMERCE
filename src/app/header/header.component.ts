@@ -11,13 +11,15 @@ export class HeaderComponent implements OnInit {
 
     subscripUsuarioLogueado: Subscription;
     usuarioLogueado: boolean;
+    usuario:any;
 
     constructor(private estadoService: EstadoService) { }
 
     ngOnInit() {
-        this.subscripUsuarioLogueado = this.estadoService.isUsuarioLoguedaoIn
+        this.subscripUsuarioLogueado = this.estadoService.isUsuarioIn
                                             .subscribe((data: any) => {
                                                 this.usuarioLogueado = data.usuarioLogueado;
+                                                this.usuario = data.usuario;
                                             })
     }
 
