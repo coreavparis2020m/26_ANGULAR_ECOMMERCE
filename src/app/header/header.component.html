@@ -1,5 +1,19 @@
 <header>
-    <p *ngIf="usuarioLogueado" class="m-r-small" routerLink="/perfil">{{usuario.nombre}}</p>
     <button *ngIf="!usuarioLogueado" class="outline" routerLink="/login">INICIAR SESIÓN</button>
-    <button *ngIf="usuarioLogueado" (click)="logOut()">CERRAR SESIÓN</button>
+    <div *ngIf="usuarioLogueado" class="menu-usuario">
+        <span>
+            <img src="assets/icons/user-circle.svg" alt="">
+        </span>
+        <div class="dropdown">
+            <div class="menu">
+                <div class="item">Hola {{usuario.nombre}}</div>
+                <hr>
+                <div class="item" routerLink="/perfil">Mi cuenta</div>
+                <hr>
+                <div class="item">Ayuda</div>
+                <hr>
+                <div class="item" (click)="logOut()">Cerrar sesión</div>
+            </div>
+        </div>
+    </div>
 </header>
