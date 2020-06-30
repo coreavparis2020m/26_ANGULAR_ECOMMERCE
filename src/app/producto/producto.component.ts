@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from '../servicios/productos.service';
 
 @Component({
@@ -24,7 +24,8 @@ export class ProductoComponent implements OnInit {
 
 
     constructor(private activatedRoute: ActivatedRoute,
-                private productosService: ProductosService) { }
+                private productosService: ProductosService,
+                private router: Router) { }
 
     ngOnInit() {
         this._id = this.activatedRoute.snapshot.params._id;
@@ -32,6 +33,10 @@ export class ProductoComponent implements OnInit {
                                 .subscribe((res: any) => {
                                     this.producto = res.producto;
                                     this.articulo = {
+                                        sku: this.producto.sku,
+                                        nombre: this.producto.nombre,
+                                        pic: this.producto.pics[0],
+                                        precio: this.producto.precio,
                                         talla: this.producto.tallas[0],
                                         color: this.producto.colores[0],
                                         cantidad: 0
@@ -73,6 +78,16 @@ export class ProductoComponent implements OnInit {
             return;
         }
         this.articulo.cantidad +=e;
+    }
+
+    addToCesta() {
+        let articulos = [];
+        if(localStorage.getItem('articulos')){
+            articulos = JSON.parse(localStorage.getItem('articulos'));
+        }
+        articulos.push(this.articulo);
+        localStorage.setItem('articulos', JSON.stringify(articulos));
+        this.router.navigate(['/cesta']);
     }
 
 }

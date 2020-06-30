@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        background-color: $medium-grey;
+        padding: 1rem;
+        font-size: 1.2rem;
+
+        &:first-child {
+            text-align: left;
+        }
+    }
+
+    td {
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid $medium-grey;
+
+        &:first-child {
+            @include flex(flex-start, center);
+
+            img {
+                height: 80px;
+                margin-right: 5px;
+            }
+
+            span {
+                @include flex(flex-start, center);
+
+                img {
+                    height: 20px;
+                    margin: 0 5px;
+                }
+            }
+        }
+    }
+}
