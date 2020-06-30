@@ -5,25 +5,32 @@
             <th>Cantidad</th>
             <th>Precio</th>
             <th>Importe</th>
+            <th></th>
         </tr>
-        <tr *ngFor="let articulo of articulos">
+        <tr *ngFor="let articulo of articulos; let i = index;">
             <td>
-                <img [src]="articulo.pic" alt="">
-                {{articulo.nombre}}
-                <span *ngIf="articulo.talla">
-                    <img src="assets/icons/etiqueta.svg" alt="">
-                    {{articulo.talla}}
-                </span>
+                <div>
+                    <img [src]="articulo.pic" alt="">
+                    {{articulo.nombre}}
+                    <span *ngIf="articulo.talla">
+                        <img src="assets/icons/etiqueta.svg" alt="">
+                        {{articulo.talla}}
+                    </span>
+                </div>
             </td>
             <td>{{articulo.cantidad}}</td>
-            <td>{{articulo.precio}}</td>
-            <td>{{articulo.importe}}</td>
+            <td>{{articulo.precio | numero: 2: ' €'}}</td>
+            <td>{{articulo.importe | numero: 2: ' €'}}</td>
+            <td (click)="deleteArticulo(i)">
+                <img src="assets/icons/trash.svg" alt="">
+            </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td>Total</td>
-            <td>{{pedido.total}}</td>
+            <td>{{pedido.total | numero: 2: ' €'}}</td>
+            <td></td>
         </tr>
     </table>
 </div>
